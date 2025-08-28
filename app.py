@@ -11,9 +11,8 @@ UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'mp4', 'mov', 'avi', 'mkv'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-# Ensure upload directory exists
-if not os.path.exists(UPLOAD_FOLDER):
-    os.makedirs(UPLOAD_FOLDER)
+# Ensure upload directory exists (THIS IS THE FIXED CODE)
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Database setup (SQLite for demo, swap to Azure SQL for production)
 def init_db():

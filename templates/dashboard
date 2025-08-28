@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Welcome, {{ session['username'] }} ({{ role }})</h2>
+    <form method="get">
+        <input type="text" name="q" placeholder="Search videos..." value="{{ query }}">
+        <input type="submit" value="Search">
+    </form>
+    <h3>Latest Videos</h3>
+    <ul>
+        {% for video in videos %}
+        <li>
+            <a href="{{ url_for('video_detail', video_id=video[0]) }}">{{ video[1] }}</a>
+            (Genre: {{ video[6] }}, Age: {{ video[7] }})
+        </li>
+        {% endfor %}
+    </ul>
+    {% if role == 'creator' %}
+    <a href="{{ url_for('upload_video') }}">Upload Video</a><br>
+    {% endif %}
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>

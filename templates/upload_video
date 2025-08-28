@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Video</title>
+</head>
+<body>
+    <h2>Upload Video</h2>
+    <form method="post" enctype="multipart/form-data">
+        Title: <input type="text" name="title" required><br>
+        Description: <input type="text" name="description" required><br>
+        Publisher: <input type="text" name="publisher"><br>
+        Producer: <input type="text" name="producer"><br>
+        Genre: <input type="text" name="genre"><br>
+        Age Rating: <input type="text" name="age_rating"><br>
+        Video File: <input type="file" name="video_file" accept="video/*" required><br>
+        <input type="submit" value="Upload">
+    </form>
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</body>
+</html>
